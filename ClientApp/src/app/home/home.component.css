@@ -1,0 +1,41 @@
+.image-container {
+  padding: 50px;
+  display: table;
+  width: 100%;
+}
+
+.image-preview {
+  display: table-cell;
+  vertical-align: top;
+  text-align: right;
+  width: 30%;
+}
+
+#flyingmoney {
+  -webkit-animation: rotation 2s infinite linear;
+}
+
+#bankofengland {
+  -webkit-animation: rotation2 2s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -webkit-transform: scaleY(-1.0);
+  }
+}
+
+@-webkit-keyframes rotation2 {
+  from {
+    -webkit-transform: scaleY(1.0);
+  }
+
+  to {
+    -webkit-transform: scaleY(-1.0);
+  }
+}
