@@ -48,4 +48,6 @@ import { statusChange } from '../animations';
 export class HomeComponent {
     title = 'app';
     statusState = 'loop-state';
+    lat = 22.3166654;
+    lng = 114.1833326;
 }

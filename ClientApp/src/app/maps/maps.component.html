@@ -1,0 +1,17 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Enter an address for the map</p>
+  </div>
+</div>
+<div class="container color-light">
+  <div class="col">
+    <p class="sm">Use this form below to enter an address for the map?</p>
+    <form>
+      <input type="text" class="txt" name="address" placeholder="Enter an address..." [(ngModel)]="addressText">
+      <input type="submit" class="btn" value="{{ btnText }}" (click)="getMap()">
+    </form>
+  </div>
+</div>
+<agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>

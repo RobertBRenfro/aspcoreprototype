@@ -14,6 +14,9 @@ import { DataService } from './data.service';
 import { DetailsComponent } from './details/details.component';
 import { PostsComponent } from './posts/posts.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { AgmCoreModule } from '@agm/core';
+import { MapsComponent } from './maps/maps.component';
+import {MapdataService} from './mapdata.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
       UsersComponent,
       DetailsComponent,
       PostsComponent,
-      FetchDataComponent
+      FetchDataComponent,
+      MapsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,13 +36,15 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
       FormsModule,
       BrowserAnimationsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: 'maps', component: MapsComponent, pathMatch: 'full'},
       { path: 'posts', component: PostsComponent },
       { path: 'users', component: UsersComponent },
       { path: 'details/:id', component: DetailsComponent }
-    ])
+    ]),
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyD2Z6Qxu800VvcoQaVJBqbjVenUyzsQ3oA'})
   ],
-  providers: [DataService],
+  providers: [DataService, MapdataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
