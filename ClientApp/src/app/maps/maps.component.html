@@ -12,6 +12,6 @@
     </form>
   </div>
 </div>
-<agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [latitude]="mapData.results[0].geometry.location.lat" [longitude]="mapData.results[0].geometry.location.lng">
+    <agm-marker [latitude]="mapData.results[0].geometry.location.lat" [longitude]="mapData.results[0].geometry.location.lng"></agm-marker>
 </agm-map>

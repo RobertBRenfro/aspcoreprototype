@@ -11,22 +11,22 @@ export class MapsComponent implements OnInit {
 
     btnText: string = 'Get Map';
     addressText: string;
-    mapData: MapData;
-    lat = 22.3166654;
-    lng = 114.1833326;
+    mapData = {
+        results: [{
+    address_components: {},
+    geometry: { location: {}, viewport: {} }}]} as MapData;
 
   constructor(private data: MapdataService) { }
 
     ngOnInit() {
-        this.mapData.geometry.location[0].lat = 22.3166654;
-        this.mapData.geometry.location[0].lng = 114.1833326;
+        this.mapData.results[0].geometry.location.lat = 22.3166654;
+        this.mapData.results[0].geometry.location.lng = 114.1833326;
   }
 
     getMap() {
             this.data.getMapCoordinates(this.addressText).subscribe(
                 data => this.mapData = data
                 );
-        this.lat = this.mapData.geometry.location[0].lat;
-        this.lng = this.mapData.geometry.location[0].lng;
+  
     }
 }

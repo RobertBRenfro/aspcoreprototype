@@ -2,50 +2,49 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-export interface Geometry {
-    location: {
-        [key: string]:LatLong
-        };
-    location_type: string;
-    viewport: {
-        [key: string]: Viewport
-        };
-}
-
-export interface Viewport {
-    northeast: {
-        [key: string]: LatLong
-        };
-    southwest: {
-        [key: string]: LatLong;
-        };
-}
-
-export interface LatLong {
+export interface iLatLong {
     lat:number;
     lng:number;
 }
 
-export interface AddressInfomation {
+export interface iViewport {
+    northeast: iLatLong;
+    southwest: iLatLong;
+}
+
+export interface iGeometry {
+    location: iLatLong
+    location_type: string;
+    viewport: iViewport;
+}
+
+export interface iAddressInfomation {
    long_name : string;
     short_name : string;
     types : string[];
 }
-export interface MapData {
-    address_components: {
-        [key: string]: AddressInfomation
-    };
+
+
+export interface MapDataDetail {
+    address_components: iAddressInfomation[];
     formatted_address: string;
-    geometry: {
-        [key: string]: Geometry
-    };
+    geometry: iGeometry;
     place_id: string;
     types: string [];
+}
+
+export interface MapData{
+    results: MapDataDetail[];
 }
 
 @Injectable()
 export class MapdataService {
 
+    mapData = {
+    results: [{
+    address_components: {},
+    geometry: { location: {}, viewport: {} }}]} as MapData;
+    
     constructor(private http: HttpClient) {  }
   
      getMapCoordinates(address) {
