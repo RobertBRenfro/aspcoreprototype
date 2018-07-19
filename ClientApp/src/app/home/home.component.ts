@@ -50,4 +50,5 @@ export class HomeComponent {
     statusState = 'loop-state';
     lat = 22.3166654;
     lng = 114.1833326;
+    address = "Threadneedle St, London EC2R 8AH, UK";
 }

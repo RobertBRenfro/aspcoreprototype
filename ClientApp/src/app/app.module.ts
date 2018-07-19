@@ -17,6 +17,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AgmCoreModule } from '@agm/core';
 import { MapsComponent } from './maps/maps.component';
 import {MapdataService} from './mapdata.service';
+import { MakemoneyComponent } from './makemoney/makemoney.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MapdataService} from './mapdata.service';
       DetailsComponent,
       PostsComponent,
       FetchDataComponent,
-      MapsComponent
+      MapsComponent,
+      MakemoneyComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,10 +39,11 @@ import {MapdataService} from './mapdata.service';
       BrowserAnimationsModule,
     RouterModule.forRoot([
     { path: '', component: HomeComponent, pathMatch: 'full' },
-    { path: 'maps', component: MapsComponent, pathMatch: 'full'},
+    { path: 'maps/:address', component: MapsComponent, pathMatch: 'full'},
       { path: 'posts', component: PostsComponent },
       { path: 'users', component: UsersComponent },
-      { path: 'details/:id', component: DetailsComponent }
+      { path: 'details/:id', component: DetailsComponent },
+      { path: 'makemoney', component: MakemoneyComponent }
     ]),
     AgmCoreModule.forRoot({apiKey: 'AIzaSyD2Z6Qxu800VvcoQaVJBqbjVenUyzsQ3oA'})
   ],

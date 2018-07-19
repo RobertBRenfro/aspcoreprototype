@@ -1,13 +1,48 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="bg-image" [@bgImgTrigger]>
-  <div class="image-container" [@statusChange]="{value: statusState}">
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Money!</h1>
+    <p class="lead">money money money</p>
+  </div>
 
-    <a><img id="bankofengland" src="../assets/home/bankofengland.jpeg" /></a>
-    <a><img id="money" src="../assets/home/money.jpeg" /></a>
-    <a><img id="flyingmoney" src="../assets/home/flyingmoney.jpeg" /></a>
+  <!--<div class="bg-image" [@bgImgTrigger]>
+      <div class="image-container" [@statusChange]="{value: statusState}">-->
+
+  <div class="row">
+      <div class="col-sm-12 col-md-4">
+          <div class="card" >
+              <div class="card-body">
+                  <h4 class="card-title">Bank of England</h4>
+                  <a><img id="bankofengland" src="../assets/home/bankofengland.jpeg" /></a>
+                  <p class="card-text">God Save the Queen!</p>
+                  <a routerLink="/maps/{{address}}" class="btn btn-primary">Go to London</a>
+              </div>
+          </div>
+      </div>
+    <div class="col-sm-12 col-md-4">
+      <div class="card" >
+          <div class="card-body">
+              <h4 class="card-title">Make Lots of Money</h4>
+              <a><img id="money" src="../assets/home/money.jpeg" /></a>
+              <p class="card-text">Money makes the world go round</p>
+              <a routerLink="/makemoney" class="btn btn-primary">Find out how</a>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-4">
+      <div class="card" >
+        <div class="card-body ">
+          <h4 class="card-title">Money Money Money</h4>
+          <a><img id="flyingmoney" src="../assets/home/flyingmoney.jpeg" /></a>
+          <p class="card-text">Get some...</p>
+          <a routerLink="/makemoney" class="btn btn-primary">Now!</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<!--</div>
+</div>-->
 <agm-map [latitude]="lat" [longitude]="lng">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
-
